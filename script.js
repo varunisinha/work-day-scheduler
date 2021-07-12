@@ -1,27 +1,36 @@
+
 // Display today's day and date
+
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
-    // saveBtn click listener 
+
+   //adding a listener to the save button 
+
     $(".saveBtn").on("click", function () {
+
         // Get nearby values of the description in JQuery
+
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
-        // Save text in local storage
+        // Saving the text in the local storage
+
         localStorage.setItem(time, text);
     })
    
     function timeTracker() {
-        //get current number of hours.
+        // accessing the current hour
         var timeNow = moment().hour();
 
-        // loop over time blocks
+        // create a for loop for the time blocks
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
-            // To check the time and add the classes for background indicators
+           
+            // check the time right now and add the classes for the background to meet criteria
+            
             if (blockTime < timeNow) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
@@ -41,7 +50,8 @@ $(document).ready(function () {
         })
     }
 
-    // Get item from local storage if any
+   // Access the local storage and get relevant values
+
     $("#hour8 .description").val(localStorage.getItem("hour8"));
     $("#hour9 .description").val(localStorage.getItem("hour9"));
     $("#hour10 .description").val(localStorage.getItem("hour10"));
@@ -52,6 +62,8 @@ $(document).ready(function () {
     $("#hour15 .description").val(localStorage.getItem("hour15"));
     $("#hour16 .description").val(localStorage.getItem("hour16"));
     $("#hour17 .description").val(localStorage.getItem("hour17"));
+
+    //calling the timeTracker function 
 
     timeTracker();
 })
