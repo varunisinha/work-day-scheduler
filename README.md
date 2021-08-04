@@ -16,4 +16,4 @@ THEN I can enter an event
 WHEN I click the save button for that timeblock
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
-THEN the saved events persist
+THEN the saved events persist<img width="1484" alt="Screen Shot 2021-08-04 at 3 55 50 PM" src="https://user-images.githubusercontent.com/49068894/128246362-03cd884c-a86f-448a-9470-c9e713c6d0c7.png">
